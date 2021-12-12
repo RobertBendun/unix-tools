@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "Line.hh"
+#include <Line.hh>
 
 int main()
 {

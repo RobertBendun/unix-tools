@@ -1,7 +1,9 @@
 # Unix utilities in pure C++20
 
-To build run:
-```
+This tool set use C++ as build scripting language. First compile builder, then compile tools
+
+```console
+$ g++ build.cc -std=c++20 -o build
 $ ./build
 ```
 

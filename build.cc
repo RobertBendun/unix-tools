@@ -11,7 +11,8 @@ using namespace std::string_view_literals;
 constexpr auto Standalone = std::array {
 	"ls"sv,
 	"uniq"sv,
-	"head"sv
+	"head"sv,
+	"pwd"sv
 };
 
 constexpr auto With_For_Each_File = std::array {

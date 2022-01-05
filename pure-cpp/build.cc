@@ -8,6 +8,8 @@
 
 using namespace std::string_view_literals;
 
+char const* Compiler;
+
 constexpr auto Standalone = std::array {
 	"ls"sv,
 	"uniq"sv,
@@ -25,7 +27,7 @@ namespace fs = std::filesystem;
 auto cmd(auto const& ...printable)
 {
 	std::ostringstream os;
-	os << "g++ -std=c++20 -O3 -Wall -Wextra ";
+	os << Compiler << " -std=c++20 -O3 -Wall -Wextra ";
 	(os << ... << printable);
 	std::cout << "[CMD] " << os.str() << std::endl;
 	std::system(os.str().c_str());
@@ -41,15 +43,24 @@ void maybe_rebuild_itself()
 	auto const exe = fs::canonical(fs::path("/proc/self/exe"));
 	auto const src = exe.parent_path() / __FILE__;
 
-	// TODO use std::error_code 
+	// TODO use std::error_code
 	if (is_rebuild_needed(src, exe)) {
 		std::cout << "[INFO] Changes to building script has been made, rebuilding self...\n";
 		cmd(src, " -o ", exe);
 	}
 }
 
+char const* getenv_or_default(char const* name, char const* default_value)
+{
+	if (auto p = getenv(name); p)
+		return p;
+	return default_value;
+}
+
 int main(int argc, char **argv)
 {
+	Compiler = getenv_or_default("CXX", "g++");
+
 	maybe_rebuild_itself();
 
 	if (++argv; *argv && *argv == "clean"sv) {

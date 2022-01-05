@@ -1,12 +1,23 @@
-# Unix utilities in pure C++20
+# Unix utilities
 
-This tool set use C++ as build scripting language. First compile builder, then compile tools
+## Pure OS API exploration
+
+- [__ls__](ls-without-dirent.cc) - exploration of iterating over directory without using `dirent` api
+
+## Pure C++20 implementations
+
+This section describes content of  directory [pure-cpp](./pure-cpp).
+
+This tool set use C++ as build scripting language. First compile builder, then compile tools.
+
+### Building
 
 ```console
+$ cd pure-cpp
 $ g++ build.cc -std=c++20 -o build
 $ ./build
 ```
 
-## Limitations
+### Limitations
 
 - **ls**: Cannot implement printing owner and group due to lack of such API

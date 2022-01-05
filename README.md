@@ -1,6 +1,6 @@
 # Unix utilities
 
-## Pure OS API exploration
+## Linux low-level API exploration
 
 - [__ls__](ls-without-dirent.cc) - exploration of iterating over directory without using `dirent` api
 

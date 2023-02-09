@@ -1,9 +1,10 @@
 #pragma once
 
 #include <istream>
-#include <ostream>
-#include <string>
 #include <iterator>
+#include <ostream>
+#include <ranges>
+#include <string>
 
 struct Line : std::string
 {
@@ -30,3 +31,5 @@ inline std::ostream& operator<<(std::ostream& os, Line const& line)
 {
 	return os << static_cast<std::string const&>(line) << '\n';
 }
+
+inline std::ranges::subrange cin_range = std::ranges::subrange(std::istream_iterator<Line>(std::cin), std::istream_iterator<Line>());

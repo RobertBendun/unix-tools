@@ -10,7 +10,7 @@
 
 namespace fs = std::filesystem;
 
-// Reference: https://pubs.opengroup.org/onlinepubs/9699919799/ 
+// Reference: https://pubs.opengroup.org/onlinepubs/9699919799/
 //            look for section STDOUT
 void ls(fs::directory_entry file)
 {
@@ -35,7 +35,7 @@ void ls(fs::directory_entry file)
 	std::cout.write(RWX[int(p & fs::perms::set_uid) ? 1 : 0][(size_t(p) / 64) & 0b111], 3); // user
 	std::cout.write(RWX[int(p & fs::perms::set_gid) ? 1 : 0][(size_t(p) / 8) & 0b111], 3); // group
 	std::cout.write(RWX[0][(size_t(p) / 1) & 0b111], 3); // others
-	
+
 	// NUMBER OF LINKS
 	std::cout << ' ' << file.hard_link_count();
 

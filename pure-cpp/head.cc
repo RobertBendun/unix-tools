@@ -5,10 +5,5 @@
 
 int main()
 {
-	std::copy_if(
-		std::istream_iterator<Line>(std::cin),
-		std::istream_iterator<Line>{},
-		std::ostream_iterator<Line>(std::cout),
-		[i = 0u](auto const&) mutable { return i++ < 15; }
-	);
+	std::ranges::copy(cin_range | std::views::take(15), std::ostream_iterator<Line>(std::cout));
 }

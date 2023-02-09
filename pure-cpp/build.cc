@@ -11,11 +11,12 @@ using namespace std::string_view_literals;
 char const* Compiler;
 
 constexpr auto Standalone = std::array {
-	"ls"sv,
-	"uniq"sv,
+	"basename"sv,
 	"head"sv,
+	"ls"sv,
 	"pwd"sv,
 	"shuf"sv,
+	"uniq"sv,
 	"rev"sv
 };
 

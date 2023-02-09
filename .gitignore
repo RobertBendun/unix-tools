@@ -5,3 +5,5 @@ uniq
 compile_flags.txt
 build
 head
+pwd
+shuf

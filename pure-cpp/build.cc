@@ -14,7 +14,8 @@ constexpr auto Standalone = std::array {
 	"ls"sv,
 	"uniq"sv,
 	"head"sv,
-	"pwd"sv
+	"pwd"sv,
+	"shuf"sv
 };
 
 constexpr auto With_For_Each_File = std::array {

@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 {
 	std::span<char*> args(argv+1, argv+argc);
 
-	bool l_spotted = false;
+	bool l_spotted = true;
 	bool p_spotted = false;
 
 	for (std::string_view arg : args) {
@@ -26,7 +26,20 @@ int main(int argc, char **argv)
 	auto const current_path = std::filesystem::current_path();
 
 	if (l_spotted) {
-		throw std::runtime_error("unimplemented");
+		if (auto p = std::getenv("PWD")) {
+			try {
+				std::filesystem::path pwd(p);
+				if (std::filesystem::equivalent(pwd, current_path)) {
+					std::cout << p << std::endl;
+					return 0;
+				}
+			} catch (std::exception const& exc) {
+				std::cerr << "pwd: failed to parse path from $PWD: " << exc.what() << std::endl;
+				return 1;
+			}
+		}
+
+		p_spotted = true;
 	}
 
 	// It seems that C++ handles -P option by default?

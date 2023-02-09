@@ -1,9 +1,10 @@
-cat
-ls
-uniq
 .ccls-cache
-compile_flags.txt
 build
+cat
+compile_flags.txt
 head
+ls
 pwd
+rev
 shuf
+uniq

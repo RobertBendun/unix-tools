@@ -2,7 +2,7 @@
 
 ## Linux low-level API exploration
 
-- [__ls__](ls-without-dirent.cc) - exploration of iterating over directory without using `dirent` api
+- [__ls__](linux/ls.cc) - exploration of iterating over directory without using `dirent` api
 
 ## Pure C++20 implementations
 

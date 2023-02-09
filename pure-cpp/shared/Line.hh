@@ -32,4 +32,8 @@ inline std::ostream& operator<<(std::ostream& os, Line const& line)
 	return os << static_cast<std::string const&>(line) << '\n';
 }
 
-inline std::ranges::subrange cin_range = std::ranges::subrange(std::istream_iterator<Line>(std::cin), std::istream_iterator<Line>());
+template<typename T=Line>
+auto to_range(std::istream &in)
+{
+	return std::ranges::subrange(std::istream_iterator<T>(in), std::istream_iterator<T>());
+}

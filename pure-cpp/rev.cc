@@ -7,6 +7,6 @@
 int main()
 {
 	std::ranges::copy(
-		cin_range | std::views::transform([](std::string s) { std::ranges::reverse(s); return s; })
+		to_range(std::cin) | std::views::transform([](std::string s) { std::ranges::reverse(s); return s; })
 		, std::ostream_iterator<Line>(std::cout));
 }

@@ -5,5 +5,5 @@
 
 int main()
 {
-	std::ranges::unique_copy(cin_range, std::ostream_iterator<Line>(std::cout));
+	std::ranges::unique_copy(to_range(std::cin), std::ostream_iterator<Line>(std::cout));
 }

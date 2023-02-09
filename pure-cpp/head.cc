@@ -8,7 +8,7 @@
 
 auto head(std::output_iterator<Line> auto &out, std::ranges::range auto &&range, unsigned n)
 {
-	out = std::ranges::copy(std::forward<decltype(range)>(range) | std::views::take(n), std::forward<decltype(out)>(out)).out;
+	out = std::ranges::copy(std::forward<decltype(range)>(range) | std::views::take(n), out).out;
 }
 
 int main(int argc, char **argv)
